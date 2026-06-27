@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERN & Django Developer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="https://i.ibb.co.com/tPsFZvyH/I-will-do-modern-minimalist-custom-natural-logo-design.jpg" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #a855f7;
+            --django-green: #092e20;
+            --cpp-blue: #00599C;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-gray: #94a3b8;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            font-family: "Poppins", sans-serif;
+
+        }
+
+        .code-font { font-family: 'Fira Code', monospace; }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Gradient Effects */
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Section Styling */
+        section { padding: 100px 0; }
+
+        /* Skill Cards */
+        .skill-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .skill-box:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            background: rgba(99, 102, 241, 0.05);
+        }
+        .skill-icon { font-size: 2.5rem; margin-bottom: 15px; }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .tech-badge {
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            color: #ddd;
+            margin-right: 5px;
+        }
+
+        /* DSA Stats */
+        .dsa-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Add these extra styles to your <style> section */
+        .text-gray { color: #94a3b8; }
+        .extra-small { font-size: 0.75rem; color: #64748b; }
+        
+        .transition-all { transition: all 0.3s ease; }
+        
+        .hover-white:hover {
+            color: white !important;
+        }
+
+        .social-icon-footer {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            color: #94a3b8;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-icon-footer:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+                /* Extra styles for the Terminal View */
+        .terminal-window {
+            background: #1a1b26;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        /* bellmanford */
+        .terminal-header {
+            background: #24283b;
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .terminal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .terminal-body::-webkit-scrollbar-track {
+            background: #1a1b26;
+        }
+
+        .terminal-body::-webkit-scrollbar-thumb {
+            background: #3b4261;
+            border-radius: 10px;
+        }
+
+        .text-comment { color: #565f89; font-style: italic; }
+
+              /* Certification Card Styling */
+        .cert-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            background: rgba(30, 41, 59, 0.8);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cert-icon-circle {
+            width: 45px;
+            height: 45px;
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .btn-verify {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-verify:hover {
+            color: var(--secondary-color);
+            padding-right: 5px;
+        }
+
+        .text-gray-muted {
+            color: #64748b;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 code-font" href="#">&lt; <span class="gradient-text">SUBROTA CHANDRA  </span>SARKER/&gt;</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <h6 class="text-uppercase mb-3 code-font" style="color: var(--primary-color)">// Full Stack Web Developer
+                    <h1 class="display-3 fw-bold mb-4">Crafting Code with <span class="gradient-text">Precision.</span></h1>
+                    <p class="lead text-gray mb-5">
+                        MERN Stack Developer & Competitive Programmer. <br>
+                        Expertise in <b>C++, Python/Django</b>, and <b>Scalable Web Architectures</b>.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a  href="https://docs.google.com/document/d/1VzCK5w5Mv9GxJAkLt1MeOn3OcjBvRzIQ0-i3p8WJPL8/edit?tab=t.0" target="_blank" class="btn btn-primary-custom">View Projects</a>
+                        <a href="https://github.com/CoderSubrota/dsa/tree/main/mod-3" target="_blank" class="btn btn-outline-light px-4 py-2 rounded-pill">Coding Profiles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-black bg-opacity-25">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-2" data-aos="fade-up">Technical <span class="gradient-text">Expertise</span></h2>
+            <p class="text-gray mb-5" data-aos="fade-up">A versatile toolkit for solving complex problems.</p>
+            
+            <div class="row g-4">
+                <!-- Row 1: MERN -->
+                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="skill-box">
+                        <i class="fab fa-react skill-icon" style="color: #61DAFB"></i>
+                        <h6>React & Redux</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="skill-box">
+                        <i class="fab fa-node-js skill-icon" style="color: #68A063"></i>
+                        <h6>Node / Express</h6>
+                    </div>
+                </div>
+                <!-- Row 2: Django & C++ -->
+                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="skill-box">
+                        <i class="fab fa-python skill-icon" style="color: #3776AB"></i>
+                        <h6>Python / Django</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="skill-box">
+                        <span class="skill-icon fw-bold code-font" style="color: #00599C">C++</span>
+                        <h6>DSA</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-black bg-opacity-25">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5" data-aos="fade-up">Featured <span class="gradient-text">Projects</span></h2>
+            
+            <div class="row g-4">
+                <!-- Django Project -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <img src="https://i.ibb.co.com/fYRfrps3/djng4.jpg" class="w-100" alt="Django Project">
+                        <div class="p-4">
+                            <span class="tech-badge">Django</span>
+                            <h5 class="mt-3 fw-bold">Library Management API</h5>       
+                            <a href="https://library-management-22.vercel.app/swagger/" target="_blank" class="text-decoration-none gradient-text fw-bold">View Project <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Project -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <img src="https://i.ibb.co.com/KxyzbJ5r/api.jpg" class="w-100" alt="MERN Project">
+                        <div class="p-4">
+                            <span class="tech-badge">API Implementation</span>
+                            <h5 class="mt-3 fw-bold">Patient Real Time Data</h5>
+                            <a href="https://x-tech-care-platform.netlify.app/" target="_blank" class="text-decoration-none gradient-text fw-bold">View Project <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                     <!-- School Project -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <img src="https://i.ibb.co.com/PGxMHLvz/school.jpg" class="w-100" alt="School Project">
+                        <div class="p-4">
+                            <span class="tech-badge">School Project</span>
+                            <h5 class="mt-3 fw-bold">For schooo admission and sharing school informations.</h5>
+                            <a href="https://bgp-school.netlify.app/" target="_blank" class="text-decoration-none gradient-text fw-bold">View Project <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bootstrap Project -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img src="https://i.ibb.co.com/9mmYxVPt/bot4.jpg" class="w-100" alt="Bootstrap Project">
+                        <div class="p-4">
+                            <span class="tech-badge">Bootstrap</span>
+                            <h5 class="mt-3 fw-bold">Educational Website</h5>
+                            <a href="https://education-tech-forever.netlify.app/" target="_blank" class="text-decoration-none gradient-text fw-bold">View Project <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- REST API Project -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img src="https://i.ibb.co.com/wF7NyT9s/rest.jpg" class="w-100" alt="Bootstrap Project">
+                        <div class="p-4">
+                            <span class="tech-badge">REST API</span>
+                            <h5 class="mt-3 fw-bold">Managing JSON data type.</h5>
+                            <a href="https://json-project-xtech.netlify.app/" target="_blank" class="text-decoration-none gradient-text fw-bold">View Project <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Front end Project -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img src="https://i.ibb.co.com/gZ271Gb4/restu77.jpg" class="w-100" alt="HTML, CSS Project">
+                        <div class="p-4">
+                            <span class="tech-badge">HTML,CSS</span>
+                            <h5 class="mt-3 fw-bold">Restaurent Front End Landing page</h5>
+                            <a href="https://xtech-food-bd.netlify.app/" target="_blank" class="text-decoration-none gradient-text fw-bold">View Project <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bellman-Ford Algorithm Case Study -->
+    <section id="bellman-ford" class="bg-dark bg-opacity-50 border-top border-bottom border-secondary border-opacity-10">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Text Content -->
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="badge bg-primary mb-3 px-3 py-2">Algorithm Implementation</div>
+                    <h2 class="fw-bold mb-4">Bellman-Ford <span class="gradient-text">Shortest Path</span></h2>
+                    <p class="text-gray mb-4">
+                        I implemented the Bellman-Ford algorithm in C++ to find the shortest paths from a single source vertex to all other vertices in a weighted graph. This implementation handles negative edge weights and is a core part of my graph theory studies.
+                    </p>
+                    
+                    <div class="complexity-box p-3 rounded-3 mb-4" style="background: rgba(99, 102, 241, 0.1); border-left: 4px solid var(--primary-color);">
+                        <div class="row">
+                            <div class="col-6">
+                                <small class="text-gray d-block">Time Complexity</small>
+                                <span class="code-font text-white">O(V * E)</span>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-gray d-block">Space Complexity</small>
+                                <span class="code-font text-white">O(V)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="list-unstyled text-gray">
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Single Source Shortest Path</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Negative Edge Weight Support</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Edge List Representation</li>
+                    </ul>
+                </div>
+
+                <!-- Code Terminal -->
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="terminal-window shadow-lg">
+                        <div class="terminal-header d-flex align-items-center">
+                            <div class="dots d-flex gap-2 ms-2">
+                                <span style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></span>
+                                <span style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></span>
+                                <span style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></span>
+                            </div>
+                            <small class="text-secondary mx-auto code-font">bellman_ford.cpp</small>
+                        </div>
+                        <div class="terminal-body p-4" style="max-height: 450px; overflow-y: auto;">
+                            <pre class="code-font text-white-50 small mb-0"><code>
+<span class="text-info">#include</span> <span class="text-warning">&lt;bits/stdc++.h&gt;</span>
+<span class="text-primary">using namespace</span> std;
+
+<span class="text-primary">class</span> <span class="text-warning">Edge</span> {
+<span class="text-primary">public</span>:
+    <span class="text-primary">int</span> u, v, c;
+    Edge(<span class="text-primary">int</span> u, <span class="text-primary">int</span> v, <span class="text-primary">int</span> c) {
+        <span class="text-primary">this</span>-&gt;u = u;
+        <span class="text-primary">this</span>-&gt;v = v;
+        <span class="text-primary">this</span>-&gt;c = c;
+    }
+};
+
+<span class="text-primary">int</span> main() {
+    <span class="text-primary">int</span> n, e;
+    cin &gt;&gt; n &gt;&gt; e;
+    vector&lt;Edge&gt; EdgeList;
+    <span class="text-primary">while</span> (e--) {
+        <span class="text-primary">int</span> u, v, c;
+        cin &gt;&gt; u &gt;&gt; v &gt;&gt; c;
+        EdgeList.push_back(Edge(u, v, c));
+    }
+
+    <span class="text-comment">// Algorithm Initialization</span>
+    <span class="text-primary">int</span> dis[n];
+    <span class="text-primary">for</span> (<span class="text-primary">int</span> i = <span class="text-primary">0</span>; i &lt; n; i++) dis[i] = INT_MAX;
+    dis[<span class="text-primary">0</span>] = <span class="text-primary">0</span>;
+
+    <span class="text-comment">// Relaxation Process</span>
+    <span class="text-primary">for</span> (<span class="text-primary">int</span> i = <span class="text-primary">1</span>; i &lt;= n - <span class="text-primary">1</span>; i++) {
+        <span class="text-primary">for</span> (Edge ed : EdgeList) {
+            <span class="text-primary">if</span> (dis[ed.u] &lt; INT_MAX && dis[ed.u] + ed.c &lt; dis[ed.v]) {
+                dis[ed.v] = dis[ed.u] + ed.c;
+            }
+        }
+    }
+    <span class="text-primary">return 0</span>;
+}
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="bg-black bg-opacity-25">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Courses & <span class="gradient-text">Certifications</span></h2>
+                <p class="text-gray">Professional training and academic achievements</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Certification 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="cert-card p-4 h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="cert-icon-circle me-3">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Complete Web Development</h6>
+                                <small class="text-primary">Programming Hero</small>
+                            </div>
+                        </div>
+                        <p class="text-gray small">Comprehensive specialization covering React, Node.js, and Cloud Deployment strategies.</p>
+                        <hr class="border-secondary opacity-25">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-gray-muted extra-small"><i class="far fa-calendar-alt me-1"></i> Issued July 2022</span>
+                            <a href="https://drive.google.com/file/d/1Vnc9HzHHJNVkzF1lcF8NrH8d9DjVYqj3/view?usp=sharing" target="_blank" class="btn-verify">Verify <i class="fas fa-external-link-alt ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="cert-card p-4 h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="cert-icon-circle me-3" style="background: rgba(15, 223, 143, 0.2); color: #092e20;">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">CSE FUNDAMENTALS</h6>
+                                <small class="text-primary">Phitron.io</small>
+                            </div>
+                        </div>
+                        <p class="text-gray small">Deep dive into DSA,OOP,Web Development, SQL databases,PostgreSQL,Django and ORM modeling.</p>
+                        <p class="text-white small">  Course Validation Number : PHBATCH562543231024 </p>
+                        <hr class="border-secondary opacity-25">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-gray-muted extra-small"><i class="far fa-calendar-alt me-1"></i> Issued May 2024</span>
+                         
+                            <a href="https://phitron.io/verification"  target="_blank" class="btn-verify">Verify <i class="fas fa-external-link-alt ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+          
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center" data-aos="zoom-in">
+                    <h2 class="fw-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+                    <p class="text-gray mb-5">Open for collaboration and professional opportunities.</p>
+                    <form class="text-start" action="https://formsubmit.co/subrotatrust@gmail.com" method="POST">
+                        <div class="mb-3">
+                            <input type="text" name="Name" class="form-control bg-white  border-secondary text-dark p-3" placeholder="Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="Email" class="form-control bg-white border-secondary text-dark p-3" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="Message" class="form-control bg-white border-secondary text-dark p-3" rows="4" placeholder="Message"></textarea>
+                        </div>
+                        <button class="btn btn-primary-custom w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Download Section -->
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container">
+        <h2 class="fw-bold mb-3">Check out my resume!</h2>
+        <p class="lead mb-4">You can download my full CV to see all my experiences and skills in detail.</p>
+        
+        <!-- The Button -->
+        <a href="./web developer-cv.pdf" download="My_CV" class="btn btn-primary btn-lg px-5 shadow">
+            <i class="bi bi-download me-2"></i> Download CV
+        </a>
+    </div>
+</section>
+
+<!-- Include Bootstrap Icons for the icon above -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<!-- Footer -->
+    <footer class="py-5 border-top border-secondary border-opacity-25 text-center bg-black bg-opacity-25">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <!-- Contact Info -->
+                <div class="col-md-4 text-md-start">
+                    <div class="mb-2">
+                        <a href="tel:+1234567890" class="text-decoration-none text-gray hover-white transition-all">
+                            <i class="fas fa-phone-alt me-2 gradient-text"></i> +8801722194284
+                        </a>
+                    </div>
+                    <div>
+                        <a href="mailto:subrotatrust@gmail.com" class="text-decoration-none text-gray hover-white transition-all">
+                            <i class="fas fa-envelope me-2 gradient-text"></i> subrotatrust@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3 code-font">&lt;GET<span class="gradient-text">CODE</span>/&gt;</h5>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://github.com/CoderSubrota/" target="_blank" class="social-icon-footer"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/codersubrota12" target="_blank" class="social-icon-footer"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="col-md-4 text-md-end">
+                    <p class="text-gray small mb-0">Designed & Built by <b><span class="gradient-text">Subrota Chandra </span> Sarker</b></p>
+                    <p class="text-gray-muted extra-small">&copy; 2024 | All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
